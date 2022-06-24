@@ -20,7 +20,7 @@
   <div class="container mt-5">
     <div class="title text-center mb-5">
       <h2>Laporan Layanan Pengaduan Online</h2>
-      <h5><a href="https://www.pengkat.madfariz.web.id/" target="_blank">www.pengkat.madfariz.web.id</a></h5>
+      <h5><a href="https://www.pengkat.madfariz.my.id/" target="_blank">www.pengkat.madfariz.my.id</a></h5>
     </div>
     <table class="table table-bordered">
       <thead class="thead">

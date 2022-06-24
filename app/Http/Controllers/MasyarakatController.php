@@ -24,7 +24,7 @@ class MasyarakatController extends Controller
         $user = Auth::user()->nik;
         // dd($user);
 
-        return view('pages.masyarakat.index', ['liat'=>$user]);
+        return view('pages.masyarakat.index', ['liat' => $user]);
     }
 
     /**
@@ -46,25 +46,25 @@ class MasyarakatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'description' => 'required',
-        'image' => 'required',
+            'description' => 'required',
+            'image' => 'required',
         ]);
-        
+
         $nik = Auth::user()->nik;
         $id = Auth::user()->id;
         $name = Auth::user()->name;
 
         $data = $request->all();
-        $data['user_nik']=$nik;
-        $data['user_id']=$id;
-        $data['name']=$name;
+        $data['user_nik'] = $nik;
+        $data['user_id'] = $id;
+        $data['name'] = $name;
         $data['image'] = $request->file('image')->store('assets/laporan', 'public');
-        
-        
-        
+
+
+
         Alert::success('Berhasil', 'Pengaduan terkirim');
         Pengaduan::create($data);
-        return redirect('user');
+        return redirect('user/pengaduan');
     }
 
     /**
@@ -74,31 +74,28 @@ class MasyarakatController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function lihat() {
-        
+    public function lihat()
+    {
 
-        $user = Auth::user()->pengaduan()->get();
-    
 
-        $items = Pengaduan::get();
+        $user = Auth::user()->pengaduan()->orderBy('created_at', 'DESC')->get();
 
         return view('pages.masyarakat.detail', [
             'items' => $user
         ]);
-
     }
 
     public function show($id)
     {
         $item = Pengaduan::with([
-        'details', 'user'
+            'details', 'user'
         ])->findOrFail($id);
-        
-        $tangap = Tanggapan::where('pengaduan_id',$id)->first();
-        
-        return view('pages.masyarakat.show',[
-        'item' => $item,
-        'tangap' => $tangap
+
+        $tangap = Tanggapan::where('pengaduan_id', $id)->first();
+
+        return view('pages.masyarakat.show', [
+            'item' => $item,
+            'tangap' => $tangap
         ]);
     }
 

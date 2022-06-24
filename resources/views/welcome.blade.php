@@ -157,8 +157,8 @@
   </div>
   <!-- Footer -->
   <footer class="text-center font-medium bg-blue-200 py-5">
-    © 2021 PENGKAT | By
-    <a href="https://madfariz.web.id/" class="text-blue-500" target="_blank">MadFariz</a>
+    © {{ now()->year }} PENGKAT | By
+    <a href="https://madfariz.my.id/" class="text-blue-500" target="_blank">MadFariz</a>
   </footer>
   @include('sweetalert::alert')
 </body>

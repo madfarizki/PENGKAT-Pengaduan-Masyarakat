@@ -19,7 +19,7 @@ Tanggapan
           <textarea
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
             rows="8" type="text" placeholder="Isi Tanggapan Anda" value="{{ old('description')}}"
-            name="tanggapan"></textarea>
+            name="tanggapan" required></textarea>
         </label>
 
         <label class="block mt-4 text-sm">
@@ -27,7 +27,7 @@ Tanggapan
 
           <select
             class="block w-full text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            name="status">
+            name="status" required>
             <option value="Belum di Proses">Belum di Proses</option>
             <option value="Sedang di Proses">Sedang di Proses</option>
             <option value="Selesai">Selesai</option>

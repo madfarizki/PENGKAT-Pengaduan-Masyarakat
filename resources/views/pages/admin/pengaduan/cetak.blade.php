@@ -20,7 +20,7 @@
   <div class="container">
     <div class="title text-center mb-5">
       <h2>Layanan Pengaduan Masyarakat Online</h2>
-      <h5><a href="https://www.pengkat.madfariz.web.id/" target="_blank">www.pengkat.madfariz.web.id</a></h5>
+      <h5><a href="https://www.pengkat.madfariz.my.id/" target="_blank">www.pengkat.madfariz.my.id</a></h5>
     </div>
     <hr class="solid">
 

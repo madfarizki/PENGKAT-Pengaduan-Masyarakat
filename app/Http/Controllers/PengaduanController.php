@@ -17,12 +17,10 @@ class PengaduanController extends Controller
     public function index()
     {
 
-        $items = Pengaduan::all();
-        return view('pages.admin.pengaduan.index',[
+        $items = Pengaduan::orderBy('created_at', 'DESC')->get();
+        return view('pages.admin.pengaduan.index', [
             'items' => $items
         ]);
-
-        
     }
 
     /**
@@ -55,14 +53,14 @@ class PengaduanController extends Controller
     public function show($id)
     {
         $item = Pengaduan::with([
-            'details', 'user' 
+            'details', 'user'
         ])->findOrFail($id);
 
-        $tangap = Tanggapan::where('pengaduan_id',$id)->first();
+        $tangap = Tanggapan::where('pengaduan_id', $id)->first();
 
-        return view('pages.admin.pengaduan.detail',[
-        'item' => $item,
-        'tangap' => $tangap
+        return view('pages.admin.pengaduan.detail', [
+            'item' => $item,
+            'tangap' => $tangap
         ]);
     }
 
@@ -74,7 +72,7 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-       //
+        //
     }
 
     /**
@@ -86,8 +84,8 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        
+
+
         $status->update($data);
         return redirect('admin/pengaduans');
     }

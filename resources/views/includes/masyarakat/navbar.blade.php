@@ -81,7 +81,7 @@
       <li class="relative">
         <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
           @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
-          <img class="object-cover w-8 h-8 rounded-full" src="https://tesstifin.com/assets/img/avatar/default.png"
+          <img class="object-cover w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?background=fff&color=121317&name={{ Auth::user()->name }}"
             alt="" aria-hidden="true" />
         </button>
         <template x-if="isProfileMenuOpen">

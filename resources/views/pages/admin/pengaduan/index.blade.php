@@ -94,6 +94,7 @@ Data Pengaduan
                     @csrf
                     @method('delete')
                     <button
+                      onclick="return confirm('Are you sure you want to delete this?')"
                       class="flex items-center justify-between  text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                       aria-label="Delete">
                       <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">

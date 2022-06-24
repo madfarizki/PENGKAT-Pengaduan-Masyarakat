@@ -15,49 +15,53 @@ class AdminController extends Controller
 {
     public function __invoke()
     {
-        
     }
 
-    public function index($id) {
+    public function index($id)
+    {
 
         $item = Pengaduan::with([
-            'details', 'user' 
+            'details', 'user'
         ])->findOrFail($id);
 
-        return view('pages.admin.tanggapan.add',[
-        'item' => $item
+        return view('pages.admin.tanggapan.add', [
+            'item' => $item
         ]);
     }
 
-    public function masyarakat() {
+    public function masyarakat()
+    {
 
-        $data = DB::table('users')->where('roles','=', 'USER')->get();
+        $data = DB::table('users')->where('roles', '=', 'USER')->get();
 
         return view('pages.admin.masyarakat', [
             'data' => $data
         ]);
     }
 
-    public function laporan() {
+    public function laporan()
+    {
 
-        $pengaduan = Pengaduan::all();
+        $pengaduan = Pengaduan::orderBy('created_at', 'DESC')->get();
 
-        return view('pages.admin.laporan',[
+        return view('pages.admin.laporan', [
             'pengaduan' => $pengaduan
         ]);
     }
 
-    public function cetak() {
+    public function cetak()
+    {
 
-        $pengaduan = Pengaduan::all();
+        $pengaduan = Pengaduan::orderBy('created_at', 'DESC')->get();
 
-        $pdf = PDF::loadview('pages.admin.pengaduan',[
+        $pdf = PDF::loadview('pages.admin.pengaduan', [
             'pengaduan' => $pengaduan
         ]);
         return $pdf->download('laporan.pdf');
     }
 
-    public function pdf($id) {
+    public function pdf($id)
+    {
 
         $pengaduan = Pengaduan::find($id);
 
